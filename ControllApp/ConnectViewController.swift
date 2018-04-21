@@ -9,10 +9,13 @@
 import UIKit
 
 class ConnectViewController: UIViewController {
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let test : Bool = RaspberryCom.connectToPi()
+        print(test)
+        
         // Do any additional setup after loading the view.
     }
 
@@ -21,7 +24,10 @@ class ConnectViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    @IBAction func buttonClicked(_ sender: Any) {
+        RaspberryCom.sub()
+    }
+    
     /*
     // MARK: - Navigation
 
