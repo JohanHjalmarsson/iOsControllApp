@@ -286,9 +286,12 @@
                                     <constraint firstAttribute="height" constant="49" id="MFK-14-SIj"/>
                                     <constraint firstAttribute="width" constant="103" id="vH1-ia-mpQ"/>
                                 </constraints>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="Add">
                                     <color key="titleColor" name="MainButtonText"/>
                                 </state>
+                                <connections>
+                                    <action selector="addButtonClicked:" destination="gJg-s0-v9w" eventType="touchUpInside" id="064-QP-cGy"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.1764705882" green="0.27450980390000002" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -307,6 +310,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mtM-ft-Xhr"/>
                     </view>
+                    <connections>
+                        <outlet property="heightInput" destination="hZ8-bs-C93" id="jxO-9U-zqy"/>
+                        <outlet property="nameInput" destination="J97-D2-b1f" id="rBI-L1-e6T"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Skw-0C-vz3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
