@@ -97,6 +97,10 @@ class CoreDataHandler: NSObject {
 //        }
 //    }
     
+    class func getGlobalStatusHeight() -> Int {
+        return 0
+    }
+    
     class func getSettingStringArray() -> [String] {
         var settingList : [String] = []
         if let list = getSettings() {

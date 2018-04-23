@@ -7,16 +7,16 @@
 //
 
 import UIKit
+import CocoaMQTT
 
-class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
-   
-    
-
+class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, CocoaMQTTDelegate  {
+  
     @IBOutlet weak var settingPicker: UIPickerView!
     @IBOutlet weak var positionLabel: UILabel!
     
     var pickerData : [[String]] = []
     var chosenSetting : String = ""
+    var currentHeight : Int = 0
     
     
     override func viewDidLoad() {
@@ -24,6 +24,7 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
         settingPicker.delegate = self
         settingPicker.dataSource = self
         pickerData.append(CoreDataHandler.getSettingStringArray())
+        currentHeight = CoreDataHandler.getGlobalStatusHeight()
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,7 +35,6 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return pickerData.count
     }
-    
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return pickerData[component].count
     }
@@ -56,6 +56,21 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     func updatePositionLabel(position: Int) {
         positionLabel.text = "Position: \(position) %"
     }
+    func updateCurrentHeight(message: String?) {
+        if let currentString = message {
+            //kod
+        }
+    }
+    
+    func receivedMessageFromRpi(message: String?) {
+        if let theMessage = message {
+            if !theMessage.isEmpty {
+                if let intMessage = Int(theMessage) {
+                    updatePositionLabel(position: intMessage)
+                }
+            }
+        }
+    }
     
     @IBAction func goToSettingButtonClicked(_ sender: Any) {
         goToSetting()
@@ -71,7 +86,23 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     
     @IBAction func stopButtonClicked(_ sender: Any) {
         RaspberryCom.deskStop()
+        CoreDataHandler.saveGlobalStatus(height: Int16(currentHeight))
+        
     }
+    
+    
+    func mqtt(_ mqtt: CocoaMQTT, didConnectAck ack: CocoaMQTTConnAck) {}
+    func mqtt(_ mqtt: CocoaMQTT, didPublishMessage message: CocoaMQTTMessage, id: UInt16) {}
+    func mqtt(_ mqtt: CocoaMQTT, didPublishAck id: UInt16) {}
+    func mqtt(_ mqtt: CocoaMQTT, didReceiveMessage message: CocoaMQTTMessage, id: UInt16) {
+        self.receivedMessageFromRpi(message: message.string)
+        //self.currentHeight =
+    }
+    func mqtt(_ mqtt: CocoaMQTT, didSubscribeTopic topic: String) {}
+    func mqtt(_ mqtt: CocoaMQTT, didUnsubscribeTopic topic: String) {}
+    func mqttDidPing(_ mqtt: CocoaMQTT) {}
+    func mqttDidReceivePong(_ mqtt: CocoaMQTT) {}
+    func mqttDidDisconnect(_ mqtt: CocoaMQTT, withError err: Error?) {}
     
     /*
     // MARK: - Navigation

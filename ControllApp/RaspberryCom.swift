@@ -40,11 +40,10 @@ class RaspberryCom {
     }
     
     // Connect to the MQTT Broker
-    class func connectToPi() -> Bool {
+    class func connectToPi(){
         mqttClient.delegate = mqttDelegate
-        let b =  mqttClient.connect()
-        
-        return b
+        mqttClient.connect()
+    
     }
     // Disconnect from the MQTT Broker
     class func disconnectFromPi() {

@@ -35,7 +35,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="tintColor" name="MainButtonText"/>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="Connect">
                                     <color key="titleShadowColor" red="0.070139641478127984" green="0.071628574187380445" blue="0.071513189807473898" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
@@ -56,6 +56,9 @@
                                     <constraint firstAttribute="height" constant="42" id="f3i-Bm-n24"/>
                                 </constraints>
                             </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="C32-Bq-FvA">
+                                <rect key="frame" x="177" y="309" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" name="MainBackgroundColor"/>
                         <constraints>
@@ -66,12 +69,18 @@
                             <constraint firstItem="a5X-1L-4R2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="GYq-yd-Pnz"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ctF-A2-XYl" secondAttribute="bottom" constant="8" id="Lcq-uE-YVV"/>
                             <constraint firstItem="TDJ-ft-mip" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="37" id="RJn-Fv-95G"/>
+                            <constraint firstItem="C32-Bq-FvA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="177" id="Sfm-z4-3Dv"/>
+                            <constraint firstItem="C32-Bq-FvA" firstAttribute="top" secondItem="TDJ-ft-mip" secondAttribute="bottom" constant="71" id="W3b-iA-GRU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="C32-Bq-FvA" secondAttribute="trailing" constant="178" id="aMm-1n-1ul"/>
+                            <constraint firstItem="wRe-6z-IMg" firstAttribute="top" secondItem="C32-Bq-FvA" secondAttribute="bottom" constant="28" id="cPx-br-k1e"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="TDJ-ft-mip" secondAttribute="trailing" constant="91" id="l6Z-53-g6Z"/>
                             <constraint firstItem="TDJ-ft-mip" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="90" id="uz8-jV-oVs"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="connectButton" destination="a5X-1L-4R2" id="cxj-b0-lgn"/>
+                        <outlet property="indicator" destination="C32-Bq-FvA" id="u1g-i9-MWC"/>
                         <segue destination="ODH-fn-11y" kind="show" identifier="toMain" id="Yyq-Vw-5aB"/>
                     </connections>
                 </viewController>
@@ -349,26 +358,11 @@
         <namedColor name="MainBackgroundColor">
             <color red="0.17599999904632568" green="0.27500000596046448" blue="0.33300000429153442" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="MainBackgroundColor">
-            <color red="0.17599999904632568" green="0.27500000596046448" blue="0.33300000429153442" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="MainBackgroundColor">
-            <color red="0.17599999899999999" green="0.27500000600000002" blue="0.33300000429999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="MainButtonColor">
-            <color red="0.40799999237060547" green="0.62699997425079346" blue="0.75700002908706665" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="MainButtonColor">
             <color red="0.40799999237060547" green="0.62699997425079346" blue="0.75700002908706665" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="MainButtonText">
             <color red="0.97299999000000004" green="0.97299999000000004" blue="0.97299999000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="MainButtonText">
-            <color red="0.97299998998641968" green="0.97299998998641968" blue="0.97299998998641968" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="MainButtonText">
-            <color red="0.97299998998641968" green="0.97299998998641968" blue="0.97299998998641968" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="RedButton">
             <color red="0.75700002908706665" green="0.40799999237060547" blue="0.40799999237060547" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

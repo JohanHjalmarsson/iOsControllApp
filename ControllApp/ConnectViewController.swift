@@ -7,40 +7,62 @@
 //
 
 import UIKit
+import CocoaMQTT
 
-class ConnectViewController: UIViewController {
+class ConnectViewController: UIViewController, CocoaMQTTDelegate {
     
-
+    var didSubscribe = false
+    var didConnect  = false
+    @IBOutlet weak var indicator: UIActivityIndicatorView!
+    @IBOutlet weak var connectButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        //let test : Bool = RaspberryCom.connectToPi()
-        //print(test)
         
-        // Do any additional setup after loading the view.
+        indicator.isHidden = true
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func buttonClicked(_ sender: Any) {
-        //RaspberryCom.sub()
-        segueToMain()
-        
+        waitForResponse(status: true)
+        RaspberryCom.connectToPi()
+    }
+    func waitForResponse(status: Bool) {
+        connectButton.isHidden = status
+        indicator.isHidden = !status
+        if status {
+            indicator.startAnimating()
+        } else {
+            indicator.stopAnimating()
+        }
     }
     func segueToMain() {
-        self.performSegue(withIdentifier: "toMain", sender: self)
+        if didSubscribe && didConnect {
+            waitForResponse(status: false)
+            self.performSegue(withIdentifier: "toMain", sender: self)
+        }
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func mqtt(_ mqtt: CocoaMQTT, didConnectAck ack: CocoaMQTTConnAck) {
+        didConnect = true
+        segueToMain()
     }
-    */
+    
+    func mqtt(_ mqtt: CocoaMQTT, didSubscribeTopic topic: String) {
+        didSubscribe = true
+        segueToMain()
+    }
+    
+    
+    func mqtt(_ mqtt: CocoaMQTT, didPublishMessage message: CocoaMQTTMessage, id: UInt16) {}
+    func mqtt(_ mqtt: CocoaMQTT, didPublishAck id: UInt16) {}
+    func mqtt(_ mqtt: CocoaMQTT, didReceiveMessage message: CocoaMQTTMessage, id: UInt16) {}
+    func mqtt(_ mqtt: CocoaMQTT, didUnsubscribeTopic topic: String) {}
+    func mqttDidPing(_ mqtt: CocoaMQTT) {}
+    func mqttDidReceivePong(_ mqtt: CocoaMQTT) {}
+    func mqttDidDisconnect(_ mqtt: CocoaMQTT, withError err: Error?) {}
 
 }
