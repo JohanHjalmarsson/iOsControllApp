@@ -26,6 +26,10 @@ class ConnectViewController: UIViewController {
     
     @IBAction func buttonClicked(_ sender: Any) {
         RaspberryCom.sub()
+        
+    }
+    func segueToMain() {
+        self.performSegue(withIdentifier: "toMain", sender: self)
     }
     
     /*

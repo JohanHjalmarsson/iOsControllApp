@@ -69,7 +69,7 @@ class CoreDataHandler: NSObject {
     }
     
     // Get desk setting. Returns all desk settings
-    class func getSetting() -> [DeskSetting]? {
+    class func getSettings() -> [DeskSetting]? {
         let context = getContext()
         var deskSettingList : [DeskSetting]? = nil
         do {
@@ -81,8 +81,29 @@ class CoreDataHandler: NSObject {
         }
     }
     
-    class func getGlobalSetting() {
-        
+//    class func getGlobalStatus() -> Int16 {
+//        let context = getContext()
+//        var deskSettingList : [GlobalStatus]? = nil
+//        do {
+//            deskSettingList = try context.fetch(GlobalStatus.fetchRequest())
+//        } catch {
+//            print("Failed to fetch Desk Settings")
+//            return 0
+//        }
+//    }
+    
+    class func getSettingStringArray() -> [String] {
+        var settingList : [String] = []
+        if let list = getSettings() {
+            for setting in list {
+                if let name = setting.name {
+                    settingList.append(name)
+                }
+            }
+        }
+        return settingList
     }
+    
+    
 
 }

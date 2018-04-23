@@ -8,20 +8,47 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+   
+    
 
+    @IBOutlet weak var settingPicker: UIPickerView!
+    @IBOutlet weak var positionLabel: UILabel!
+    
+    var settingsList : [String] = []
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
     }
     
-
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 0
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return 0
+    }
+    
+    @IBAction func goToSettingButtonClicked(_ sender: Any) {
+    }
+    
+    @IBAction func upButtonClicked(_ sender: Any) {
+    }
+    
+    @IBAction func downButtonClicked(_ sender: Any) {
+    }
+    
+    @IBAction func stopButtonClicked(_ sender: Any) {
+    }
+    
     /*
     // MARK: - Navigation
 

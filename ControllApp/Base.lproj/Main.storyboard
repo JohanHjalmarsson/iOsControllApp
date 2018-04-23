@@ -71,10 +71,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <segue destination="ODH-fn-11y" kind="show" identifier="toMain" id="Yyq-Vw-5aB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4" y="131.78410794602701"/>
+            <point key="canvasLocation" x="12" y="136"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="ns6-zs-hLr">
@@ -149,9 +152,12 @@
                                     <constraint firstAttribute="height" constant="54" id="Dfu-WM-w4Z"/>
                                     <constraint firstAttribute="width" constant="236" id="QXd-pb-IOe"/>
                                 </constraints>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="GO">
                                     <color key="titleColor" name="MainButtonText"/>
                                 </state>
+                                <connections>
+                                    <action selector="goToSettingButtonClicked:" destination="ODH-fn-11y" eventType="touchUpInside" id="2hQ-Qp-gQL"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kz9-za-SID">
                                 <rect key="frame" x="69" y="318" width="106" height="49"/>
@@ -163,6 +169,9 @@
                                 <state key="normal" title="UP">
                                     <color key="titleColor" name="MainButtonText"/>
                                 </state>
+                                <connections>
+                                    <action selector="upButtonClicked:" destination="ODH-fn-11y" eventType="touchUpInside" id="CmG-UG-jm8"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S2d-yM-lua">
                                 <rect key="frame" x="199" y="318" width="106" height="49"/>
@@ -174,6 +183,9 @@
                                 <state key="normal" title="DOWN">
                                     <color key="titleColor" name="MainButtonText"/>
                                 </state>
+                                <connections>
+                                    <action selector="downButtonClicked:" destination="ODH-fn-11y" eventType="touchUpInside" id="eL3-3Q-9sV"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O50-59-Crk">
                                 <rect key="frame" x="69" y="398" width="236" height="49"/>
@@ -182,9 +194,12 @@
                                     <constraint firstAttribute="height" constant="49" id="IUa-C1-WY1"/>
                                     <constraint firstAttribute="width" constant="236" id="Wuo-Za-uNT"/>
                                 </constraints>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="STOP">
                                     <color key="titleColor" name="MainButtonText"/>
                                 </state>
+                                <connections>
+                                    <action selector="stopButtonClicked:" destination="ODH-fn-11y" eventType="touchUpInside" id="LQH-x6-2vg"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Position: 30 %" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iFa-We-Ypo">
                                 <rect key="frame" x="69" y="489" width="236" height="29"/>
@@ -219,6 +234,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aNB-n9-kcX"/>
                     </view>
+                    <connections>
+                        <outlet property="positionLabel" destination="iFa-We-Ypo" id="5YB-aR-G1s"/>
+                        <outlet property="settingPicker" destination="hhS-uJ-61m" id="V0G-Xm-Ydm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NzX-hi-6qW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
