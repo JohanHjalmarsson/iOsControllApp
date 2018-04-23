@@ -53,6 +53,10 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
         }
     }
     
+    func updatePositionLabel(position: Int) {
+        positionLabel.text = "Position: \(position) %"
+    }
+    
     @IBAction func goToSettingButtonClicked(_ sender: Any) {
         goToSetting()
     }
