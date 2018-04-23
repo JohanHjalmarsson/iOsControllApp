@@ -12,13 +12,14 @@ import CocoaMQTT
 class RaspberryCom {
     
     static let mqttClient = CocoaMQTT(clientID: "iOS JH Controll App", host: "192.168.1.137", port: 1883)
-    static let mqttDelegate = RaspberryComDelegate()
+    
     static let publishTopic : String = "ios_to_rasp"
     static let subscribeTopic : String = "rasp_to_ios"
     
     static let upMessage : String = "deskUp"
     static let downMessage : String = "deskDown"
     static let stopMessage : String = "deskStop"
+    //static let mqttDelegate : CocoaMQTTDelegate? = nil
     
     
     // TODO: checks for connection status before publish
@@ -39,9 +40,11 @@ class RaspberryCom {
         mqttClient.publish(publishTopic, withString: String(position))
     }
     
+    class func setDelegate(delegate: CocoaMQTTDelegate) {
+        mqttClient.delegate = delegate
+    }
     // Connect to the MQTT Broker
     class func connectToPi(){
-        mqttClient.delegate = mqttDelegate
         mqttClient.connect()
     
     }
@@ -51,7 +54,7 @@ class RaspberryCom {
     }
     
     // Subscribe to MQTT topic
-    class func sub() {
+    class func subscribe() {
         mqttClient.subscribe(subscribeTopic)
     }
     

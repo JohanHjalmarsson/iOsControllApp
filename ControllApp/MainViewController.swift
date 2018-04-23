@@ -23,6 +23,7 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
         super.viewDidLoad()
         settingPicker.delegate = self
         settingPicker.dataSource = self
+        RaspberryCom.setDelegate(delegate: self)
         pickerData.append(CoreDataHandler.getSettingStringArray())
         currentHeight = CoreDataHandler.getGlobalStatusHeight()
     }

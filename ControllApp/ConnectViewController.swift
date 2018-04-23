@@ -18,7 +18,7 @@ class ConnectViewController: UIViewController, CocoaMQTTDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        RaspberryCom.setDelegate(delegate: self)
         indicator.isHidden = true
     }
 
@@ -40,19 +40,19 @@ class ConnectViewController: UIViewController, CocoaMQTTDelegate {
         }
     }
     func segueToMain() {
-        if didSubscribe && didConnect {
+        //if didSubscribe && didConnect {
             waitForResponse(status: false)
             self.performSegue(withIdentifier: "toMain", sender: self)
-        }
+        //}
     }
     
     func mqtt(_ mqtt: CocoaMQTT, didConnectAck ack: CocoaMQTTConnAck) {
-        didConnect = true
-        segueToMain()
+        //didConnect = true
+        RaspberryCom.subscribe()
     }
     
     func mqtt(_ mqtt: CocoaMQTT, didSubscribeTopic topic: String) {
-        didSubscribe = true
+        //didSubscribe = true
         segueToMain()
     }
     
