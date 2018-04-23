@@ -58,7 +58,12 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     }
     func updateCurrentHeight(message: String?) {
         if let currentString = message {
-            //kod
+            let intString:Int? = Int(currentString)
+            if let height = intString {
+                currentHeight = height
+            } else {
+                print("Message is not an int")
+            }
         }
     }
     
@@ -96,7 +101,7 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     func mqtt(_ mqtt: CocoaMQTT, didPublishAck id: UInt16) {}
     func mqtt(_ mqtt: CocoaMQTT, didReceiveMessage message: CocoaMQTTMessage, id: UInt16) {
         self.receivedMessageFromRpi(message: message.string)
-        //self.currentHeight =
+        self.updateCurrentHeight(message: message.string)
     }
     func mqtt(_ mqtt: CocoaMQTT, didSubscribeTopic topic: String) {}
     func mqtt(_ mqtt: CocoaMQTT, didUnsubscribeTopic topic: String) {}
