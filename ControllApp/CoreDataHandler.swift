@@ -81,6 +81,11 @@ class CoreDataHandler: NSObject {
         }
     }
     
+    class func getHeightFromSettingName(name: String) -> Int {
+        // kod som hämtar height!
+        return 0
+    }
+    
 //    class func getGlobalStatus() -> Int16 {
 //        let context = getContext()
 //        var deskSettingList : [GlobalStatus]? = nil

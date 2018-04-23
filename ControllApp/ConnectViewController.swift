@@ -13,8 +13,8 @@ class ConnectViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let test : Bool = RaspberryCom.connectToPi()
-        print(test)
+        //let test : Bool = RaspberryCom.connectToPi()
+        //print(test)
         
         // Do any additional setup after loading the view.
     }
@@ -25,7 +25,8 @@ class ConnectViewController: UIViewController {
     }
     
     @IBAction func buttonClicked(_ sender: Any) {
-        RaspberryCom.sub()
+        //RaspberryCom.sub()
+        segueToMain()
         
     }
     func segueToMain() {
