@@ -16,7 +16,7 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     
     var pickerData : [[String]] = []
     var chosenSetting : String = ""
-    var currentHeight : Int = 0
+    var currentHeight : Double = 0
     
     
     override func viewDidLoad() {
@@ -54,14 +54,17 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
         }
     }
     
-    func updatePositionLabel(position: Int) {
-        positionLabel.text = "Position: \(position) %"
+    func updatePositionLabel(position: Double) {
+        positionLabel.text = "Position: \(position) cm"
     }
+    // TODO: Ändra height till double!
+    // BTW du gör typ samma sak i update och recieved
     func updateCurrentHeight(message: String?) {
         if let currentString = message {
-            let intString:Int? = Int(currentString)
+            let intString:Double? = Double(currentString)
             if let height = intString {
                 currentHeight = height
+                print(height)
             } else {
                 print("Message is not an int")
             }
@@ -71,7 +74,7 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     func receivedMessageFromRpi(message: String?) {
         if let theMessage = message {
             if !theMessage.isEmpty {
-                if let intMessage = Int(theMessage) {
+                if let intMessage = Double(theMessage) {
                     updatePositionLabel(position: intMessage)
                 }
             }
@@ -101,6 +104,7 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     func mqtt(_ mqtt: CocoaMQTT, didPublishMessage message: CocoaMQTTMessage, id: UInt16) {}
     func mqtt(_ mqtt: CocoaMQTT, didPublishAck id: UInt16) {}
     func mqtt(_ mqtt: CocoaMQTT, didReceiveMessage message: CocoaMQTTMessage, id: UInt16) {
+        print(message.string)
         self.receivedMessageFromRpi(message: message.string)
         self.updateCurrentHeight(message: message.string)
     }

@@ -24,6 +24,7 @@ class AddSettingViewController: UIViewController, UITextFieldDelegate {
         super.didReceiveMemoryWarning()
         
     }
+    // TODO: Ändra height till double!
     func addSettingToCoreData() {
         if let name = nameInput.text, let height = heightInput.text {
             if !name.isEmpty && !height.isEmpty {

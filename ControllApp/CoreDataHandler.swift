@@ -26,7 +26,7 @@ class CoreDataHandler: NSObject {
         
         return appDelegate.persistentContainer.viewContext
     }
-    
+    // TODO: Ändra height till double!
     // Save setting to Core Data
     class func saveSetting(name:String, height:Int16) {
         let context = getContext()
@@ -97,7 +97,7 @@ class CoreDataHandler: NSObject {
 //        }
 //    }
     
-    class func getGlobalStatusHeight() -> Int {
+    class func getGlobalStatusHeight() -> Double {
         return 0
     }
     
