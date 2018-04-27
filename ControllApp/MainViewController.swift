@@ -25,7 +25,6 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
         settingPicker.dataSource = self
         RaspberryCom.setDelegate(delegate: self)
         pickerData.append(CoreDataHandler.getSettingStringArray())
-        currentHeight = CoreDataHandler.getGlobalStatusHeight()
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,29 +53,18 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
         }
     }
     
-    func updatePositionLabel(position: Double) {
-        positionLabel.text = "Position: \(position) cm"
+    func updatePositionLabel() {
+        positionLabel.text = "Position: \(currentHeight) cm"
     }
-    // TODO: Ändra height till double!
-    // BTW du gör typ samma sak i update och recieved
+
     func updateCurrentHeight(message: String?) {
         if let currentString = message {
-            let intString:Double? = Double(currentString)
-            if let height = intString {
+            let doubleString:Double? = Double(currentString)
+            if let height = doubleString {
                 currentHeight = height
                 print(height)
             } else {
-                print("Message is not an int")
-            }
-        }
-    }
-    
-    func receivedMessageFromRpi(message: String?) {
-        if let theMessage = message {
-            if !theMessage.isEmpty {
-                if let intMessage = Double(theMessage) {
-                    updatePositionLabel(position: intMessage)
-                }
+                print("Message is not a number")
             }
         }
     }
@@ -95,8 +83,6 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     
     @IBAction func stopButtonClicked(_ sender: Any) {
         RaspberryCom.deskStop()
-        CoreDataHandler.saveGlobalStatus(height: Int16(currentHeight))
-        
     }
     
     
@@ -105,8 +91,8 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     func mqtt(_ mqtt: CocoaMQTT, didPublishAck id: UInt16) {}
     func mqtt(_ mqtt: CocoaMQTT, didReceiveMessage message: CocoaMQTTMessage, id: UInt16) {
         print(message.string)
-        self.receivedMessageFromRpi(message: message.string)
         self.updateCurrentHeight(message: message.string)
+        self.updatePositionLabel()
     }
     func mqtt(_ mqtt: CocoaMQTT, didSubscribeTopic topic: String) {}
     func mqtt(_ mqtt: CocoaMQTT, didUnsubscribeTopic topic: String) {}

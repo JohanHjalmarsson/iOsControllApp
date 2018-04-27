@@ -19,7 +19,6 @@
 		047602F2208774EF00C82D15 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047602F1208774EF00C82D15 /* MainViewController.swift */; };
 		047602F4208774FC00C82D15 /* AddSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047602F3208774FC00C82D15 /* AddSettingViewController.swift */; };
 		047602F62087750D00C82D15 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047602F52087750D00C82D15 /* PreferencesViewController.swift */; };
-		04A1C0282087BFF200681F15 /* RaspberryComDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A1C0272087BFF200681F15 /* RaspberryComDelegate.swift */; };
 		9DF8E0B09A067B0629AA5ACE /* Pods_ControllApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6656D470F4CCB21CC293DA9 /* Pods_ControllApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,7 +37,6 @@
 		047602F1208774EF00C82D15 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		047602F3208774FC00C82D15 /* AddSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSettingViewController.swift; sourceTree = "<group>"; };
 		047602F52087750D00C82D15 /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
-		04A1C0272087BFF200681F15 /* RaspberryComDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaspberryComDelegate.swift; sourceTree = "<group>"; };
 		325E760B418BCF606E5F4E0F /* Pods-ControllApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ControllApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-ControllApp/Pods-ControllApp.release.xcconfig"; sourceTree = "<group>"; };
 		A6656D470F4CCB21CC293DA9 /* Pods_ControllApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ControllApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6FB4A7D33AC21EEDDBE9036 /* Pods-ControllApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ControllApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ControllApp/Pods-ControllApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -90,7 +88,6 @@
 				047602F1208774EF00C82D15 /* MainViewController.swift */,
 				047602F3208774FC00C82D15 /* AddSettingViewController.swift */,
 				047602F52087750D00C82D15 /* PreferencesViewController.swift */,
-				04A1C0272087BFF200681F15 /* RaspberryComDelegate.swift */,
 			);
 			path = ControllApp;
 			sourceTree = "<group>";
@@ -252,7 +249,6 @@
 				047602A02084DF5B00C82D15 /* CoreDataHandler.swift in Sources */,
 				047602F0208774E300C82D15 /* ConnectViewController.swift in Sources */,
 				0476028B2084DBEF00C82D15 /* AppDelegate.swift in Sources */,
-				04A1C0282087BFF200681F15 /* RaspberryComDelegate.swift in Sources */,
 				047602932084DBEF00C82D15 /* ControllApp.xcdatamodeld in Sources */,
 				047602F4208774FC00C82D15 /* AddSettingViewController.swift in Sources */,
 			);

@@ -11,8 +11,6 @@ import CocoaMQTT
 
 class ConnectViewController: UIViewController, CocoaMQTTDelegate {
     
-    var didSubscribe = false
-    var didConnect  = false
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     @IBOutlet weak var connectButton: UIButton!
     
@@ -40,19 +38,15 @@ class ConnectViewController: UIViewController, CocoaMQTTDelegate {
         }
     }
     func segueToMain() {
-        //if didSubscribe && didConnect {
             waitForResponse(status: false)
             self.performSegue(withIdentifier: "toMain", sender: self)
-        //}
     }
     
     func mqtt(_ mqtt: CocoaMQTT, didConnectAck ack: CocoaMQTTConnAck) {
-        //didConnect = true
         RaspberryCom.subscribe()
     }
     
     func mqtt(_ mqtt: CocoaMQTT, didSubscribeTopic topic: String) {
-        //didSubscribe = true
         segueToMain()
     }
     

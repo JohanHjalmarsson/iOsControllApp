@@ -36,7 +36,7 @@ class RaspberryCom {
         mqttClient.publish(publishTopic, withString: stopMessage)
     }
     // Publish a message to MQTT Broker
-    class func deskToPosition(_ position: Int) {
+    class func deskToPosition(_ position: Double) {
         mqttClient.publish(publishTopic, withString: String(position))
     }
     

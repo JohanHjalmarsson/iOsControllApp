@@ -12,24 +12,22 @@ class AddSettingViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var nameInput: UITextField!
     @IBOutlet weak var heightInput: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         heightInput.delegate = self
-
-        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
     }
-    // TODO: Ändra height till double!
+
     func addSettingToCoreData() {
         if let name = nameInput.text, let height = heightInput.text {
             if !name.isEmpty && !height.isEmpty {
-                if let intHeight = Int16(height) {
-                    CoreDataHandler.saveSetting(name: name, height: intHeight)
+                if let doubleHeight = Double(height) {
+                    CoreDataHandler.saveSetting(name: name, height: doubleHeight)
                 } else {
                     print("Failed to convert String to Int16")
                 }
