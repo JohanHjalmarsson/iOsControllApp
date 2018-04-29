@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0459AF5D2095EA8600C10090 /* JHNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0459AF5C2095EA8600C10090 /* JHNavController.swift */; };
 		0476028B2084DBEF00C82D15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0476028A2084DBEF00C82D15 /* AppDelegate.swift */; };
 		0476028D2084DBEF00C82D15 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0476028C2084DBEF00C82D15 /* ViewController.swift */; };
 		047602902084DBEF00C82D15 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0476028E2084DBEF00C82D15 /* Main.storyboard */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0459AF5C2095EA8600C10090 /* JHNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHNavController.swift; sourceTree = "<group>"; };
 		047602872084DBEF00C82D15 /* ControllApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ControllApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0476028A2084DBEF00C82D15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0476028C2084DBEF00C82D15 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 				047602F1208774EF00C82D15 /* MainViewController.swift */,
 				047602F3208774FC00C82D15 /* AddSettingViewController.swift */,
 				047602F52087750D00C82D15 /* PreferencesViewController.swift */,
+				0459AF5C2095EA8600C10090 /* JHNavController.swift */,
 			);
 			path = ControllApp;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				047602F2208774EF00C82D15 /* MainViewController.swift in Sources */,
+				0459AF5D2095EA8600C10090 /* JHNavController.swift in Sources */,
 				047602EE2087649600C82D15 /* RaspberryCom.swift in Sources */,
 				047602F62087750D00C82D15 /* PreferencesViewController.swift in Sources */,
 				0476028D2084DBEF00C82D15 /* ViewController.swift in Sources */,

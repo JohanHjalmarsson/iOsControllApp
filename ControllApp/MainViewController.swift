@@ -31,6 +31,12 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
         super.didReceiveMemoryWarning()
         
     }
+    override func loadViewIfNeeded() {
+        super.loadViewIfNeeded()
+        pickerData.removeAll()
+        pickerData.append(CoreDataHandler.getSettingStringArray())
+        settingPicker.reloadAllComponents()
+    }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return pickerData.count
@@ -38,8 +44,9 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return pickerData[component].count
     }
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return pickerData[component][row]
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        let attString = NSAttributedString(string: pickerData[component][row], attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+        return attString
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         chosenSetting = pickerData[component][row]
