@@ -41,12 +41,13 @@ class AddSettingViewController: UIViewController, UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         var result = true
-        let allowedCharacters = CharacterSet.decimalDigits
+        let allowedCharacters = CharacterSet.init(charactersIn: "0123456789.")
         let characterSet = CharacterSet(charactersIn: string)
         result = allowedCharacters.isSuperset(of: characterSet)
         
+        //TODO: Set maximum input height. Or go back to %
         if let text = heightInput.text {
-            if text.count > 2 {
+            if text.count > 3 {
                 if string != "" {
                    result = false
                 }
