@@ -17,6 +17,7 @@ class CoreDataHandler: NSObject {
     static let deskSettingName : String = "name"
     static let deskSettingHeight : String = "height"
     
+    
     private class func getContext() -> NSManagedObjectContext {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         return appDelegate.persistentContainer.viewContext
@@ -33,10 +34,8 @@ class CoreDataHandler: NSObject {
             try context.save()
         } catch {
             print("Faled to save desk setting")
-            
         }
     }
-    
     
     // Get desk setting. Returns all desk settings
     class func getSettings() -> [DeskSetting]? {
@@ -51,21 +50,48 @@ class CoreDataHandler: NSObject {
         }
     }
     
+    // Returns the height (double) of an entrie if name matches
     class func getHeightFromSettingName(name: String) -> Double {
+        let context = getContext()
         var height : Double = 0
-        if let list = getSettings() {
-            for setting in list {
-                if let settingName = setting.name {
-                    if settingName == name {
-                        height =  setting.height
-                        break;
-                    }
-                }
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "DeskSetting")
+        let pred = NSPredicate(format: "name == %@", name)
+        fetchRequest.predicate = pred
+        do {
+            let deskSettingList = try context.fetch(fetchRequest)
+            for setting in deskSettingList as! [DeskSetting] {
+                height = setting.height
             }
+        } catch {
+            print("failed to fetch desk setting")
         }
+        print(height)
         return height
     }
+    
+    // Deletes desk setting from DeskSetting by attribute: name.
+    class func deleteSetting(name: String) {
+        let context = getContext()
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "DeskSetting")
+        let pred = NSPredicate(format: "name == %@", name)
+        fetchRequest.predicate = pred
+        do {
+            let deskSettingList = try context.fetch(fetchRequest)
+            for setting in deskSettingList as! [DeskSetting] {
+                context.delete(setting)
+            }
+        } catch {
+            print("Failed to delete setting")
+        }
+        do {
+            try context.save()
+        } catch {
+            print("Faled to save deletion")
+        }
+        
+    }
 
+    // Returns an String array of names of settings
     class func getSettingStringArray() -> [String] {
         var settingList : [String] = []
         if let list = getSettings() {
