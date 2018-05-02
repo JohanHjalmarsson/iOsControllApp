@@ -88,7 +88,6 @@ class CoreDataHandler: NSObject {
         } catch {
             print("Faled to save deletion")
         }
-        
     }
 
     // Returns an String array of names of settings

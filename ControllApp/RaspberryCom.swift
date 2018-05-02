@@ -40,6 +40,7 @@ class RaspberryCom {
         mqttClient.publish(publishTopic, withString: String(position))
     }
     
+    // Set the delegate
     class func setDelegate(delegate: CocoaMQTTDelegate) {
         mqttClient.delegate = delegate
     }

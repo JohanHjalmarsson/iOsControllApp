@@ -37,7 +37,9 @@ class PreferencesViewController: UIViewController, UIPickerViewDataSource, UIPic
         return attString
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        chosenSetting = settingList[component][row]
+        if settingList[component].count > 0 {
+            chosenSetting = settingList[component][row]
+        }
     }
     
     @IBAction func deleteButtonClicked(_ sender: Any) {

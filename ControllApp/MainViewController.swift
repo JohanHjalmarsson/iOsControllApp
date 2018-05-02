@@ -49,7 +49,10 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
         return attString
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        chosenSetting = pickerData[component][row]
+        if pickerData[component].count > 0 {
+            chosenSetting = pickerData[component][row]
+        }
+        
     }
     
     func goToSetting() {
@@ -105,7 +108,9 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     func mqtt(_ mqtt: CocoaMQTT, didUnsubscribeTopic topic: String) {}
     func mqttDidPing(_ mqtt: CocoaMQTT) {}
     func mqttDidReceivePong(_ mqtt: CocoaMQTT) {}
-    func mqttDidDisconnect(_ mqtt: CocoaMQTT, withError err: Error?) {}
+    func mqttDidDisconnect(_ mqtt: CocoaMQTT, withError err: Error?) {
+        self.navigationController?.dismiss(animated: true, completion: nil)
+    }
     
     /*
     // MARK: - Navigation
