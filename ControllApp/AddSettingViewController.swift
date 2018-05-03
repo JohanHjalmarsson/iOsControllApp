@@ -12,10 +12,14 @@ class AddSettingViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var nameInput: UITextField!
     @IBOutlet weak var heightInput: UITextField!
+    @IBOutlet weak var addButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         heightInput.delegate = self
+        nameInput.attributedPlaceholder = NSAttributedString(string: "Name", attributes: [NSAttributedStringKey.foregroundColor: UIColor.gray])
+        heightInput.attributedPlaceholder = NSAttributedString(string: "Height", attributes: [NSAttributedStringKey.foregroundColor: UIColor.gray])
+        addButton.layer.cornerRadius = 20.0
     }
 
     override func didReceiveMemoryWarning() {

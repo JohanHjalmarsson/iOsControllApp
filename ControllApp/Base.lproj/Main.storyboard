@@ -235,8 +235,12 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="downButton" destination="S2d-yM-lua" id="waE-X5-rf9"/>
+                        <outlet property="goButton" destination="zq5-aV-ahu" id="wqK-T1-IUo"/>
                         <outlet property="positionLabel" destination="iFa-We-Ypo" id="5YB-aR-G1s"/>
                         <outlet property="settingPicker" destination="hhS-uJ-61m" id="V0G-Xm-Ydm"/>
+                        <outlet property="stopButton" destination="O50-59-Crk" id="gWK-N6-3YP"/>
+                        <outlet property="upButton" destination="kz9-za-SID" id="h5F-Kg-0vE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NzX-hi-6qW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -311,6 +315,7 @@
                         <viewLayoutGuide key="safeArea" id="mtM-ft-Xhr"/>
                     </view>
                     <connections>
+                        <outlet property="addButton" destination="vz9-qK-DF9" id="O2j-0T-94l"/>
                         <outlet property="heightInput" destination="hZ8-bs-C93" id="jxO-9U-zqy"/>
                         <outlet property="nameInput" destination="J97-D2-b1f" id="rBI-L1-e6T"/>
                     </connections>
@@ -359,6 +364,7 @@
                         <viewLayoutGuide key="safeArea" id="gIq-7C-Elf"/>
                     </view>
                     <connections>
+                        <outlet property="deleteButton" destination="bHe-0m-4Ab" id="e6U-1X-WAS"/>
                         <outlet property="settingPicker" destination="BCF-nX-2d7" id="XJ0-2c-JjZ"/>
                     </connections>
                 </viewController>

@@ -10,6 +10,7 @@ import UIKit
 
 class PreferencesViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
 
+    @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var settingPicker: UIPickerView!
     var settingList : [[String]] = []
     var chosenSetting : String = ""
@@ -19,6 +20,7 @@ class PreferencesViewController: UIViewController, UIPickerViewDataSource, UIPic
         settingList.append(CoreDataHandler.getSettingStringArray())
         settingPicker.delegate = self
         settingPicker.dataSource = self
+        deleteButton.layer.cornerRadius = 20.0
     }
 
     override func didReceiveMemoryWarning() {

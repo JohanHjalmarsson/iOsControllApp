@@ -14,6 +14,12 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     @IBOutlet weak var settingPicker: UIPickerView!
     @IBOutlet weak var positionLabel: UILabel!
     
+    @IBOutlet weak var goButton: UIButton!
+    @IBOutlet weak var upButton: UIButton!
+    @IBOutlet weak var downButton: UIButton!
+    @IBOutlet weak var stopButton: UIButton!
+    
+    var buttons : [UIButton] = []
     var pickerData : [[String]] = []
     var chosenSetting : String = ""
     var currentHeight : Double = 0
@@ -25,6 +31,8 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
         settingPicker.dataSource = self
         RaspberryCom.setDelegate(delegate: self)
         pickerData.append(CoreDataHandler.getSettingStringArray())
+        buttons = [goButton, upButton, downButton, stopButton]
+        buttonRadius(b: buttons)
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,6 +44,12 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
         pickerData.removeAll()
         pickerData.append(CoreDataHandler.getSettingStringArray())
         settingPicker.reloadAllComponents()
+    }
+    
+    func buttonRadius(b: [UIButton]) {
+        for button in b {
+            button.layer.cornerRadius = 20.0
+        }
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -59,7 +73,12 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
         if chosenSetting != "" {
             RaspberryCom.deskToPosition(CoreDataHandler.getHeightFromSettingName(name:chosenSetting))
         } else {
-            print("No setting chosen")
+            if pickerData[0].count > 0 {
+                chosenSetting = pickerData[0][0]
+                RaspberryCom.deskToPosition(CoreDataHandler.getHeightFromSettingName(name:chosenSetting))
+            } else {
+                print("No setting")
+            }
         }
     }
     

@@ -18,6 +18,7 @@ class ConnectViewController: UIViewController, CocoaMQTTDelegate {
         super.viewDidLoad()
         RaspberryCom.setDelegate(delegate: self)
         indicator.isHidden = true
+        connectButton.layer.cornerRadius = 20.0
     }
 
     override func didReceiveMemoryWarning() {
