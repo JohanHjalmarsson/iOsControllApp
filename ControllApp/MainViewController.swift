@@ -72,9 +72,11 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     func goToSetting() {
         if chosenSetting != "" {
             RaspberryCom.deskToPosition(CoreDataHandler.getHeightFromSettingName(name:chosenSetting))
+            print("height: \(CoreDataHandler.getHeightFromSettingName(name:chosenSetting))")
         } else {
             if pickerData[0].count > 0 {
                 chosenSetting = pickerData[0][0]
+                
                 RaspberryCom.deskToPosition(CoreDataHandler.getHeightFromSettingName(name:chosenSetting))
             } else {
                 print("No setting")
@@ -119,7 +121,7 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     func mqtt(_ mqtt: CocoaMQTT, didPublishMessage message: CocoaMQTTMessage, id: UInt16) {}
     func mqtt(_ mqtt: CocoaMQTT, didPublishAck id: UInt16) {}
     func mqtt(_ mqtt: CocoaMQTT, didReceiveMessage message: CocoaMQTTMessage, id: UInt16) {
-        print(message.string)
+        //print(message.string)
         self.updateCurrentHeight(message: message.string)
         self.updatePositionLabel()
     }

@@ -26,9 +26,9 @@ class ConnectViewController: UIViewController, CocoaMQTTDelegate {
     }
     
     @IBAction func buttonClicked(_ sender: Any) {
-        //waitForResponse(status: true)
-        //RaspberryCom.connectToPi()
-        segueToMain()
+        waitForResponse(status: true)
+        RaspberryCom.connectToPi()
+        //segueToMain()
     }
     func waitForResponse(status: Bool) {
         connectButton.isHidden = status
