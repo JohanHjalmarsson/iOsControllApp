@@ -138,7 +138,7 @@
                                 </constraints>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zq5-aV-ahu">
-                                <rect key="frame" x="69" y="212" width="236" height="54"/>
+                                <rect key="frame" x="69" y="234" width="236" height="54"/>
                                 <color key="backgroundColor" name="MainButtonColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="54" id="Dfu-WM-w4Z"/>
@@ -151,36 +151,8 @@
                                     <action selector="goToSettingButtonClicked:" destination="ODH-fn-11y" eventType="touchUpInside" id="2hQ-Qp-gQL"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kz9-za-SID">
-                                <rect key="frame" x="69" y="329" width="106" height="49"/>
-                                <color key="backgroundColor" name="GreenButton"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="106" id="Scq-Po-Qnz"/>
-                                    <constraint firstAttribute="height" constant="49" id="Y7R-yW-kjL"/>
-                                </constraints>
-                                <state key="normal" title="UP">
-                                    <color key="titleColor" name="MainButtonText"/>
-                                </state>
-                                <connections>
-                                    <action selector="upButtonClicked:" destination="ODH-fn-11y" eventType="touchUpInside" id="CmG-UG-jm8"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S2d-yM-lua">
-                                <rect key="frame" x="199" y="329" width="106" height="49"/>
-                                <color key="backgroundColor" name="MainButtonColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="49" id="T98-OQ-HHX"/>
-                                    <constraint firstAttribute="width" constant="106" id="ipn-YY-beI"/>
-                                </constraints>
-                                <state key="normal" title="DOWN">
-                                    <color key="titleColor" name="MainButtonText"/>
-                                </state>
-                                <connections>
-                                    <action selector="downButtonClicked:" destination="ODH-fn-11y" eventType="touchUpInside" id="eL3-3Q-9sV"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O50-59-Crk">
-                                <rect key="frame" x="69" y="409" width="236" height="49"/>
+                                <rect key="frame" x="69" y="437" width="236" height="49"/>
                                 <color key="backgroundColor" name="RedButton"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="49" id="IUa-C1-WY1"/>
@@ -193,31 +165,65 @@
                                     <action selector="stopButtonClicked:" destination="ODH-fn-11y" eventType="touchUpInside" id="LQH-x6-2vg"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Position: 30 %" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iFa-We-Ypo">
-                                <rect key="frame" x="69" y="500" width="236" height="29"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Position: 30 %" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iFa-We-Ypo">
+                                <rect key="frame" x="69" y="529" width="236" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" name="MainButtonText"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="uoW-3T-44K">
+                                <rect key="frame" x="69" y="338" width="236" height="49"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kz9-za-SID">
+                                        <rect key="frame" x="0.0" y="0.0" width="108" height="49"/>
+                                        <color key="backgroundColor" name="GreenButton"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="49" id="Y7R-yW-kjL"/>
+                                        </constraints>
+                                        <state key="normal" title="UP">
+                                            <color key="titleColor" name="MainButtonText"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="upButtonClicked:" destination="ODH-fn-11y" eventType="touchUpInside" id="CmG-UG-jm8"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S2d-yM-lua">
+                                        <rect key="frame" x="128" y="0.0" width="108" height="49"/>
+                                        <color key="backgroundColor" name="MainButtonColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="49" id="T98-OQ-HHX"/>
+                                        </constraints>
+                                        <state key="normal" title="DOWN">
+                                            <color key="titleColor" name="MainButtonText"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="downButtonClicked:" destination="ODH-fn-11y" eventType="touchUpInside" id="eL3-3Q-9sV"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="236" id="jCu-4w-Jll"/>
+                                    <constraint firstItem="kz9-za-SID" firstAttribute="width" secondItem="S2d-yM-lua" secondAttribute="width" id="pbU-BA-BUm"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.1764705882" green="0.27450980390000002" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="H5t-vX-7Kv" firstAttribute="leading" secondItem="aNB-n9-kcX" secondAttribute="leading" id="2Ek-Wy-0fh"/>
-                            <constraint firstItem="O50-59-Crk" firstAttribute="top" secondItem="kz9-za-SID" secondAttribute="bottom" constant="31" id="2Qt-2c-zH4"/>
-                            <constraint firstItem="kz9-za-SID" firstAttribute="top" secondItem="zq5-aV-ahu" secondAttribute="bottom" constant="63" id="6a8-eZ-Mmw"/>
                             <constraint firstItem="iFa-We-Ypo" firstAttribute="leading" secondItem="aNB-n9-kcX" secondAttribute="leading" constant="69" id="9Ky-3x-oFv"/>
                             <constraint firstItem="O50-59-Crk" firstAttribute="centerX" secondItem="6at-xo-ezB" secondAttribute="centerX" id="AIw-8g-6w5"/>
                             <constraint firstItem="H5t-vX-7Kv" firstAttribute="trailing" secondItem="aNB-n9-kcX" secondAttribute="trailing" id="FHK-eV-HKg"/>
                             <constraint firstItem="aNB-n9-kcX" firstAttribute="trailing" secondItem="iFa-We-Ypo" secondAttribute="trailing" constant="70" id="FVM-vo-HjK"/>
+                            <constraint firstItem="O50-59-Crk" firstAttribute="top" secondItem="uoW-3T-44K" secondAttribute="bottom" constant="50" id="FZ0-9B-8fv"/>
+                            <constraint firstItem="uoW-3T-44K" firstAttribute="top" secondItem="zq5-aV-ahu" secondAttribute="bottom" constant="50" id="GLD-K8-tOD"/>
                             <constraint firstItem="hhS-uJ-61m" firstAttribute="leading" secondItem="aNB-n9-kcX" secondAttribute="leading" id="Hc0-RR-Nw3"/>
-                            <constraint firstItem="kz9-za-SID" firstAttribute="leading" secondItem="aNB-n9-kcX" secondAttribute="leading" constant="69" id="JS3-nq-Kyd"/>
                             <constraint firstItem="H5t-vX-7Kv" firstAttribute="bottom" secondItem="6at-xo-ezB" secondAttribute="bottom" id="JsP-mA-YQE"/>
                             <constraint firstItem="hhS-uJ-61m" firstAttribute="top" secondItem="aNB-n9-kcX" secondAttribute="top" constant="16" id="KeB-m0-3Ol"/>
                             <constraint firstItem="hhS-uJ-61m" firstAttribute="trailing" secondItem="aNB-n9-kcX" secondAttribute="trailing" id="Yfg-7n-Vbs"/>
-                            <constraint firstItem="S2d-yM-lua" firstAttribute="top" secondItem="zq5-aV-ahu" secondAttribute="bottom" constant="63" id="Yn8-Dt-Zhb"/>
-                            <constraint firstItem="aNB-n9-kcX" firstAttribute="trailing" secondItem="S2d-yM-lua" secondAttribute="trailing" constant="70" id="alf-xG-8B8"/>
-                            <constraint firstItem="zq5-aV-ahu" firstAttribute="top" secondItem="hhS-uJ-61m" secondAttribute="bottom" constant="8" id="hpe-Q6-gcQ"/>
-                            <constraint firstItem="iFa-We-Ypo" firstAttribute="top" secondItem="O50-59-Crk" secondAttribute="bottom" constant="42" id="mkQ-6v-213"/>
+                            <constraint firstItem="zq5-aV-ahu" firstAttribute="top" secondItem="hhS-uJ-61m" secondAttribute="bottom" constant="30" id="hpe-Q6-gcQ"/>
+                            <constraint firstItem="uoW-3T-44K" firstAttribute="centerX" secondItem="6at-xo-ezB" secondAttribute="centerX" id="lNu-2m-GXA"/>
+                            <constraint firstItem="iFa-We-Ypo" firstAttribute="top" secondItem="O50-59-Crk" secondAttribute="bottom" constant="43" id="mkQ-6v-213"/>
+                            <constraint firstItem="H5t-vX-7Kv" firstAttribute="top" secondItem="iFa-We-Ypo" secondAttribute="bottom" constant="43" id="t6y-tY-hZz"/>
                             <constraint firstItem="zq5-aV-ahu" firstAttribute="centerX" secondItem="6at-xo-ezB" secondAttribute="centerX" id="zEm-Pe-HP7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aNB-n9-kcX"/>
@@ -315,7 +321,6 @@
                         <viewLayoutGuide key="safeArea" id="mtM-ft-Xhr"/>
                     </view>
                     <connections>
-                        <outlet property="addButton" destination="vz9-qK-DF9" id="O2j-0T-94l"/>
                         <outlet property="heightInput" destination="hZ8-bs-C93" id="jxO-9U-zqy"/>
                         <outlet property="nameInput" destination="J97-D2-b1f" id="rBI-L1-e6T"/>
                     </connections>
@@ -364,7 +369,6 @@
                         <viewLayoutGuide key="safeArea" id="gIq-7C-Elf"/>
                     </view>
                     <connections>
-                        <outlet property="deleteButton" destination="bHe-0m-4Ab" id="e6U-1X-WAS"/>
                         <outlet property="settingPicker" destination="BCF-nX-2d7" id="XJ0-2c-JjZ"/>
                     </connections>
                 </viewController>
