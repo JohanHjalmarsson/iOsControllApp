@@ -321,6 +321,7 @@
                         <viewLayoutGuide key="safeArea" id="mtM-ft-Xhr"/>
                     </view>
                     <connections>
+                        <outlet property="addButton" destination="vz9-qK-DF9" id="zVi-FK-yxp"/>
                         <outlet property="heightInput" destination="hZ8-bs-C93" id="jxO-9U-zqy"/>
                         <outlet property="nameInput" destination="J97-D2-b1f" id="rBI-L1-e6T"/>
                     </connections>
@@ -369,6 +370,7 @@
                         <viewLayoutGuide key="safeArea" id="gIq-7C-Elf"/>
                     </view>
                     <connections>
+                        <outlet property="deleteButton" destination="bHe-0m-4Ab" id="ikc-JO-Iuf"/>
                         <outlet property="settingPicker" destination="BCF-nX-2d7" id="XJ0-2c-JjZ"/>
                     </connections>
                 </viewController>

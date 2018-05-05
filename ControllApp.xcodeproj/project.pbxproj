@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		0459AF5D2095EA8600C10090 /* JHNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0459AF5C2095EA8600C10090 /* JHNavController.swift */; };
 		0476028B2084DBEF00C82D15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0476028A2084DBEF00C82D15 /* AppDelegate.swift */; };
-		0476028D2084DBEF00C82D15 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0476028C2084DBEF00C82D15 /* ViewController.swift */; };
 		047602902084DBEF00C82D15 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0476028E2084DBEF00C82D15 /* Main.storyboard */; };
 		047602932084DBEF00C82D15 /* ControllApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 047602912084DBEF00C82D15 /* ControllApp.xcdatamodeld */; };
 		047602952084DBEF00C82D15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 047602942084DBEF00C82D15 /* Assets.xcassets */; };
@@ -27,7 +26,6 @@
 		0459AF5C2095EA8600C10090 /* JHNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHNavController.swift; sourceTree = "<group>"; };
 		047602872084DBEF00C82D15 /* ControllApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ControllApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0476028A2084DBEF00C82D15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0476028C2084DBEF00C82D15 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0476028F2084DBEF00C82D15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		047602922084DBEF00C82D15 /* ControllApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ControllApp.xcdatamodel; sourceTree = "<group>"; };
 		047602942084DBEF00C82D15 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -78,7 +76,6 @@
 			isa = PBXGroup;
 			children = (
 				0476028A2084DBEF00C82D15 /* AppDelegate.swift */,
-				0476028C2084DBEF00C82D15 /* ViewController.swift */,
 				0476028E2084DBEF00C82D15 /* Main.storyboard */,
 				047602942084DBEF00C82D15 /* Assets.xcassets */,
 				047602962084DBEF00C82D15 /* LaunchScreen.storyboard */,
@@ -249,7 +246,6 @@
 				0459AF5D2095EA8600C10090 /* JHNavController.swift in Sources */,
 				047602EE2087649600C82D15 /* RaspberryCom.swift in Sources */,
 				047602F62087750D00C82D15 /* PreferencesViewController.swift in Sources */,
-				0476028D2084DBEF00C82D15 /* ViewController.swift in Sources */,
 				047602A02084DF5B00C82D15 /* CoreDataHandler.swift in Sources */,
 				047602F0208774E300C82D15 /* ConnectViewController.swift in Sources */,
 				0476028B2084DBEF00C82D15 /* AppDelegate.swift in Sources */,
