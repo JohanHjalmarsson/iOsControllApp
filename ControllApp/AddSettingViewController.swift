@@ -27,6 +27,7 @@ class AddSettingViewController: UIViewController, UITextFieldDelegate {
         
     }
 
+    // Checks conditions for text inputs and if ok; call saveSetting in CoreDataHandler to save a setting
     func addSettingToCoreData() {
         if let name = nameInput.text, let height = heightInput.text {
             if !name.isEmpty && !height.isEmpty {
@@ -43,6 +44,7 @@ class AddSettingViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    // Sets allowed characters in heightInput
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         var result = true
         let allowedCharacters = CharacterSet.init(charactersIn: "0123456789.")

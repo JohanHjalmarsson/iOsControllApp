@@ -25,11 +25,14 @@ class ConnectViewController: UIViewController, CocoaMQTTDelegate {
         super.didReceiveMemoryWarning()
     }
     
+    // To try app without connection to Raspberry, comment out waitForResponse() and RaspberryCom.connectToPi() and uncomment segueToMain()
     @IBAction func buttonClicked(_ sender: Any) {
         waitForResponse(status: true)
         RaspberryCom.connectToPi()
         //segueToMain()
     }
+    
+    // Function called when response from Raspberry. Then change UI accordingly
     func waitForResponse(status: Bool) {
         connectButton.isHidden = status
         indicator.isHidden = !status
@@ -39,6 +42,8 @@ class ConnectViewController: UIViewController, CocoaMQTTDelegate {
             indicator.stopAnimating()
         }
     }
+    
+    // Segues to main
     func segueToMain() {
             waitForResponse(status: false)
             self.performSegue(withIdentifier: "toMain", sender: self)

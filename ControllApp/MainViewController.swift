@@ -46,6 +46,7 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
         settingPicker.reloadAllComponents()
     }
     
+    // Change the corner radius of chosen buttons
     func buttonRadius(b: [UIButton]) {
         for button in b {
             button.layer.cornerRadius = 20.0
@@ -69,14 +70,13 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
         
     }
     
+    // Uses variable chosenSetting to get the height of that setting and then make request to Raspberry Pi
     func goToSetting() {
         if chosenSetting != "" {
             RaspberryCom.deskToPosition(CoreDataHandler.getHeightFromSettingName(name:chosenSetting))
-            print("height: \(CoreDataHandler.getHeightFromSettingName(name:chosenSetting))")
         } else {
             if pickerData[0].count > 0 {
                 chosenSetting = pickerData[0][0]
-                
                 RaspberryCom.deskToPosition(CoreDataHandler.getHeightFromSettingName(name:chosenSetting))
             } else {
                 print("No setting")
@@ -84,16 +84,17 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
         }
     }
     
+    // Updates the position label with currenHeight
     func updatePositionLabel() {
         positionLabel.text = "Position: \(currentHeight) cm"
     }
 
+    // Updates currentHeight from String
     func updateCurrentHeight(message: String?) {
         if let currentString = message {
             let doubleString:Double? = Double(currentString)
             if let height = doubleString {
                 currentHeight = height
-                print(height)
             } else {
                 print("Message is not a number")
             }
@@ -116,12 +117,10 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
         RaspberryCom.deskStop()
     }
     
-    
     func mqtt(_ mqtt: CocoaMQTT, didConnectAck ack: CocoaMQTTConnAck) {}
     func mqtt(_ mqtt: CocoaMQTT, didPublishMessage message: CocoaMQTTMessage, id: UInt16) {}
     func mqtt(_ mqtt: CocoaMQTT, didPublishAck id: UInt16) {}
     func mqtt(_ mqtt: CocoaMQTT, didReceiveMessage message: CocoaMQTTMessage, id: UInt16) {
-        //print(message.string)
         self.updateCurrentHeight(message: message.string)
         self.updatePositionLabel()
     }
@@ -132,15 +131,5 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     func mqttDidDisconnect(_ mqtt: CocoaMQTT, withError err: Error?) {
         self.navigationController?.dismiss(animated: true, completion: nil)
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

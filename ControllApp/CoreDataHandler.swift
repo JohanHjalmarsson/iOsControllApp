@@ -65,7 +65,6 @@ class CoreDataHandler: NSObject {
         } catch {
             print("failed to fetch desk setting")
         }
-        //print(height)
         return height
     }
     
